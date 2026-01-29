@@ -8,6 +8,7 @@ export function API({ stack }: StackContext) {
   });
 
   const api = new Api(stack, "api", {
+    cors: true,
     defaults: {
       function: {
         bind: [bus],
@@ -18,6 +19,7 @@ export function API({ stack }: StackContext) {
       "GET /todo": "packages/functions/src/todo.list",
       "POST /todo": "packages/functions/src/todo.create",
       "GET /hello": "packages/functions/src/hello.handler",
+      "POST /hello": "packages/functions/src/hello.post",
     },
   });
 
